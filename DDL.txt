@@ -1,0 +1,97 @@
+-- Tabela de Especialidades
+CREATE TABLE Especialidades (
+    id_especialidade SERIAL PRIMARY KEY,
+    nome VARCHAR(50) NOT NULL UNIQUE,
+    descricao TEXT
+);
+
+-- Tabela de Médicos
+CREATE TABLE Medicos (
+    id_medico SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    crm VARCHAR(20) NOT NULL UNIQUE,
+    telefone VARCHAR(15),
+    email VARCHAR(100),
+    id_especialidade INT NOT NULL,
+    data_admissao DATE NOT NULL,
+    salario DECIMAL(10,2) CHECK (salario > 0),
+    FOREIGN KEY (id_especialidade) REFERENCES Especialidades(id_especialidade)
+);
+
+-- Tabela de Pacientes
+CREATE TABLE Pacientes (
+    id_paciente SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    data_nascimento DATE NOT NULL,
+    cpf VARCHAR(14) NOT NULL UNIQUE,
+    telefone VARCHAR(15),
+    email VARCHAR(100),
+    endereco TEXT,
+    alergias TEXT,
+    convenio VARCHAR(50)
+);
+
+-- Tabela de Agendamentos
+CREATE TABLE Agendamentos (
+    id_agendamento SERIAL PRIMARY KEY,
+    id_paciente INT NOT NULL,
+    id_medico INT NOT NULL,
+    data_hora DATE NOT NULL,
+    status VARCHAR(15),
+    observacoes TEXT,
+    FOREIGN KEY (id_paciente) REFERENCES Pacientes(id_paciente),
+    FOREIGN KEY (id_medico) REFERENCES Medicos(id_medico)
+);
+
+-- Tabela de Consultas
+CREATE TABLE Consultas (
+    id_consulta SERIAL PRIMARY KEY,
+    id_agendamento INT NOT NULL UNIQUE,
+    data_hora_inicio DATE NOT NULL,
+    data_hora_fim DATE NOT NULL,
+    diagnostico TEXT,
+    observacoes TEXT,
+    FOREIGN KEY (id_agendamento) REFERENCES Agendamentos(id_agendamento)
+);
+
+-- Tabela de Receitas
+CREATE TABLE Receitas (
+    id_receita SERIAL PRIMARY KEY,
+    id_consulta INT NOT NULL,
+    data_emissao DATE NOT NULL,
+    validade DATE NOT NULL,
+    instrucoes TEXT,
+    FOREIGN KEY (id_consulta) REFERENCES Consultas(id_consulta)
+);
+
+-- Tabela de Medicamentos
+CREATE TABLE Medicamentos (
+    id_medicamento SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    fabricante VARCHAR(100),
+    principio_ativo VARCHAR(100)
+);
+
+-- Tabela de Itens de Receita
+CREATE TABLE ItensReceita (
+    id_item SERIAL PRIMARY KEY,
+    id_receita INT NOT NULL,
+    id_medicamento INT NOT NULL,
+    posologia VARCHAR(100) NOT NULL,
+    quantidade INT NOT NULL CHECK (quantidade > 0),
+    FOREIGN KEY (id_receita) REFERENCES Receitas(id_receita),
+    FOREIGN KEY (id_medicamento) REFERENCES Medicamentos(id_medicamento)
+);
+
+-- Tabela de Pagamentos
+CREATE TABLE Pagamentos (
+    id_pagamento SERIAL PRIMARY KEY,
+    id_consulta INT NOT NULL,
+    valor DECIMAL(10,2) NOT NULL CHECK (valor > 0),
+    data_pagamento DATE NOT NULL,
+    forma_pagamento VARCHAR(10),
+    FOREIGN KEY (id_consulta) REFERENCES Consultas(id_consulta)
+);
+
+-- Adicionando uma coluna após a criação inicial
+ALTER TABLE Medicos ADD COLUMN ativo BOOLEAN DEFAULT TRUE;

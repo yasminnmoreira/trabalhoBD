@@ -1,0 +1,218 @@
+-- Inserindo especialidades
+INSERT INTO Especialidades (nome, descricao) VALUES
+('Cardiologia', 'Especialidade médica que trata do coração e sistema cardiovascular'),
+('Dermatologia', 'Especialidade médica que trata da pele e seus anexos'),
+('Ginecologia', 'Especialidade médica que trata da saúde da mulher'),
+('Ortopedia', 'Especialidade médica que trata do sistema musculoesquelético'),
+('Pediatria', 'Especialidade médica que trata de crianças e adolescentes'),
+('Neurologia', 'Especialidade médica que trata do sistema nervoso'),
+('Oftalmologia', 'Especialidade médica que trata dos olhos'),
+('Psiquiatria', 'Especialidade médica que trata da saúde mental'),
+('Clínica Geral', 'Especialidade médica de atendimento primário'),
+('Endocrinologia', 'Especialidade médica que trata do sistema endócrino');
+
+-- Inserindo médicos
+INSERT INTO Medicos (nome, crm, telefone, email, id_especialidade, data_admissao, salario) VALUES
+('Dr. Carlos Silva', 'CRM/SP 123456', '(11) 9999-8888', 'carlos.silva@clinica.com', 1, '2015-03-10', 15000.00),
+('Dra. Ana Oliveira', 'CRM/SP 234567', '(11) 9999-7777', 'ana.oliveira@clinica.com', 2, '2017-05-15', 14000.00),
+('Dr. Marcos Souza', 'CRM/SP 345678', '(11) 9999-6666', 'marcos.souza@clinica.com', 3, '2018-07-20', 14500.00),
+('Dra. Juliana Costa', 'CRM/SP 456789', '(11) 9999-5555', 'juliana.costa@clinica.com', 4, '2016-02-05', 15500.00),
+('Dr. Roberto Santos', 'CRM/SP 567890', '(11) 9999-4444', 'roberto.santos@clinica.com', 5, '2019-09-12', 13000.00),
+('Dra. Fernanda Lima', 'CRM/SP 678901', '(11) 9999-3333', 'fernanda.lima@clinica.com', 6, '2017-11-25', 16000.00),
+('Dr. Eduardo Pereira', 'CRM/SP 789012', '(11) 9999-2222', 'eduardo.pereira@clinica.com', 7, '2018-04-18', 13500.00),
+('Dra. Patricia Rocha', 'CRM/SP 890123', '(11) 9999-1111', 'patricia.rocha@clinica.com', 8, '2020-01-30', 14200.00),
+('Dr. Antonio Mendes', 'CRM/SP 901234', '(11) 9999-0000', 'antonio.mendes@clinica.com', 9, '2015-08-22', 12500.00),
+('Dra. Beatriz Alves', 'CRM/SP 012345', '(11) 9888-8888', 'beatriz.alves@clinica.com', 10, '2019-06-14', 14800.00);
+
+-- Inserindo pacientes
+INSERT INTO Pacientes (nome, data_nascimento, cpf, telefone, email, endereco, alergias, convenio) VALUES
+('Maria Oliveira', '1985-05-20', '123.456.789-01', '(11) 9888-7777', 'maria.oliveira@email.com', 'Rua A, 100 - São Paulo', 'Penicilina', 'Amil'),
+('João Silva', '1990-08-15', '234.567.890-12', '(11) 9888-6666', 'joao.silva@email.com', 'Rua B, 200 - São Paulo', NULL, 'Unimed'),
+('Ana Santos', '1978-03-10', '345.678.901-23', '(11) 9888-5555', 'ana.santos@email.com', 'Rua C, 300 - São Paulo', 'Dipirona', 'Bradesco Saúde'),
+('Pedro Costa', '1995-11-25', '456.789.012-34', '(11) 9888-4444', 'pedro.costa@email.com', 'Rua D, 400 - São Paulo', NULL, NULL),
+('Carla Lima', '1982-07-30', '567.890.123-45', '(11) 9888-3333', 'carla.lima@email.com', 'Rua E, 500 - São Paulo', 'Amoxicilina', 'SulAmérica'),
+('Marcos Souza', '1975-09-12', '678.901.234-56', '(11) 9888-2222', 'marcos.souza@email.com', 'Rua F, 600 - São Paulo', NULL, 'Amil'),
+('Juliana Pereira', '1992-04-05', '789.012.345-67', '(11) 9888-1111', 'juliana.pereira@email.com', 'Rua G, 700 - São Paulo', 'Iodo', 'Unimed'),
+('Ricardo Alves', '1988-12-18', '890.123.456-78', '(11) 9888-0000', 'ricardo.alves@email.com', 'Rua H, 800 - São Paulo', NULL, NULL),
+('Patricia Mendes', '1970-06-22', '901.234.567-89', '(11) 9777-7777', 'patricia.mendes@email.com', 'Rua I, 900 - São Paulo', 'Lactose', 'Bradesco Saúde'),
+('Fernando Rocha', '1983-02-28', '012.345.678-90', '(11) 9777-6666', 'fernando.rocha@email.com', 'Rua J, 1000 - São Paulo', NULL, 'SulAmérica');
+
+-- Inserindo agendamentos
+INSERT INTO Agendamentos (id_paciente, id_medico, data_hora, status, observacoes) VALUES
+(1, 1, '2023-05-10 09:00:00', 'realizado', 'Paciente com histórico de hipertensão'),
+(2, 2, '2023-05-10 10:30:00', 'realizado', 'Avaliação de manchas na pele'),
+(3, 3, '2023-05-11 14:00:00', 'realizado', 'Consulta de rotina'),
+(4, 4, '2023-05-11 16:30:00', 'cancelado', 'Paciente desmarcou'),
+(5, 5, '2023-05-12 08:00:00', 'realizado', 'Criança com febre'),
+(6, 6, '2023-05-12 11:00:00', 'faltou', 'Paciente não compareceu'),
+(7, 7, '2023-05-15 13:30:00', 'realizado', 'Exame de vista'),
+(8, 8, '2023-05-15 15:00:00', 'realizado', 'Acompanhamento psiquiátrico'),
+(9, 9, '2023-05-16 09:30:00', 'realizado', 'Check-up anual'),
+(10, 10, '2023-05-16 10:45:00', 'realizado', 'Avaliação de diabetes');
+
+-- Inserindo consultas (apenas para agendamentos realizados)
+INSERT INTO Consultas (id_agendamento, data_hora_inicio, data_hora_fim, diagnostico, observacoes) VALUES
+(1, '2023-05-10 09:05:00', '2023-05-10 09:40:00', 'Hipertensão estável', 'Manter medicação atual'),
+(2, '2023-05-10 10:35:00', '2023-05-10 11:15:00', 'Dermatite de contato', 'Receitado creme hidratante'),
+(3, '2023-05-11 14:10:00', '2023-05-11 14:50:00', 'Saúde em dia', 'Recomendado retorno em 1 ano'),
+(5, '2023-05-12 08:05:00', '2023-05-12 08:45:00', 'Infecção viral', 'Repouso e hidratação'),
+(7, '2023-05-15 13:35:00', '2023-05-15 14:20:00', 'Miopia progressiva', 'Ajuste no grau dos óculos'),
+(8, '2023-05-15 15:05:00', '2023-05-15 16:00:00', 'Depressão controlada', 'Manter dose atual de medicamento'),
+(9, '2023-05-16 09:35:00', '2023-05-16 10:25:00', 'Colesterol elevado', 'Recomendado dieta e exercícios'),
+(10, '2023-05-16 10:50:00', '2023-05-16 11:40:00', 'Diabetes tipo 2 controlada', 'Ajuste na dose de insulina');
+
+-- Inserindo medicamentos
+INSERT INTO Medicamentos (nome, fabricante, principio_ativo) VALUES
+('Losartana 50mg', 'EMS', 'Losartana potássica'),
+('Hidratopic', 'Aché', 'Ureia + Lactato de amônio'),
+('Diazepam 5mg', 'Eurofarma', 'Diazepam'),
+('Ibuprofeno 400mg', 'Neo Química', 'Ibuprofeno'),
+('Amoxil BD 500mg', 'GlaxoSmithKline', 'Amoxicilina'),
+('Sinvastatina 20mg', 'Zodiac', 'Sinvastatina'),
+('Insulina NPH', 'Novo Nordisk', 'Insulina humana'),
+('Rivotril 2mg', 'Roche', 'Clonazepam'),
+('Dipirona 500mg', 'Sanofi', 'Dipirona sódica'),
+('Omeprazol 20mg', 'Prati Donaduzzi', 'Omeprazol');
+
+-- Inserindo receitas
+ INSERT INTO Receitas ( data_emissao, validade, instrucoes) VALUES
+(1,'2023-05-10', '2023-08-10', 'Tomar 1 comprimido ao dia'),
+(5,'2023-05-10', '2023-06-10', 'Aplicar 2 vezes ao dia na área afetada'),
+(6,'2023-05-12', '2023-05-19', 'Tomar 1 comprimido a cada 8 horas se houver febre'),
+(7,'2023-05-15', '2023-11-15', 'Usar óculos com novo grau'),
+(8,'2023-05-15', '2023-08-15', 'Tomar 1 comprimido ao deitar'),
+(9, '2023-05-16', '2023-08-16', 'Tomar 1 comprimido ao deitar'),
+(10, '2023-05-16','2023-06-16', 'Aplicar 20 unidades pela manhã e 10 à noite');
+
+-- Inserindo itens de receita
+INSERT INTO ItensReceita (id_receita, id_medicamento, posologia, quantidade) VALUES
+(1, 1, '1 comprimido ao dia', 30),
+(2, 2, 'Aplicar 2 vezes ao dia', 1),
+(3, 4, '1 comprimido a cada 8 horas se houver febre', 10),
+(5, 8, '1 comprimido ao deitar', 60),
+(6, 6, '1 comprimido ao deitar', 30),
+(7, 7, '20 unidades pela manhã e 10 à noite', 2);
+
+-- Inserindo pagamentos
+INSERT INTO Pagamentos (id_consulta, valor, data_pagamento, forma_pagamento, status) VALUES
+(1, 250.00, '2023-05-10', 'cartao_credito', 'pago'),
+(2, 180.00, '2023-05-10', 'convenio', 'pago'),
+(3, 200.00, '2023-05-11', 'convenio', 'pago'),
+(5, 150.00, '2023-05-12', 'convenio', 'pago'),
+(7, 300.00, '2023-05-15', 'dinheiro', 'pago'),
+(8, 350.00, '2023-05-15', 'cartao_debito', 'pago'),
+(9, 220.00, '2023-05-16', 'convenio', 'pago'),
+(10, 280.00, '2023-05-16', 'pix', 'pago');
+
+-- Atualizar o salário de um médico que recebeu aumento
+UPDATE Medicos SET salario = salario * 1.1 WHERE id_medico = 5;
+
+-- Atualizar o status de um pagamento que foi confirmado posteriormente
+UPDATE Pagamentos SET status = 'pago' WHERE id_pagamento = 8;
+
+-- Atualizar o telefone de um paciente
+UPDATE Pacientes SET telefone = '(11) 9777-5555' WHERE id_paciente = 3;
+
+-- Marcar um médico como inativo (demitido)
+UPDATE Medicos SET ativo = FALSE WHERE id_medico = 4;
+
+-- Excluir um agendamento cancelado que não tem consulta associada
+DELETE FROM Agendamentos WHERE id_agendamento = 4;
+
+-- Excluir um medicamento que não é mais utilizado na clínica
+DELETE FROM Medicamentos WHERE id_medicamento = 9;
+
+-- Atualizar o diagnóstico de uma consulta após receber exames complementares
+UPDATE Consultas SET diagnostico = 'Hipertensão estável com melhora' WHERE id_consulta = 1;
+
+-- Atualizar o endereço de um paciente
+UPDATE Pacientes SET endereco = 'Rua K, 1100 - São Paulo' WHERE id_paciente = 7;
+
+-- Excluir um paciente que nunca realizou consultas (supondo que inserimos um paciente extra)
+INSERT INTO Pacientes (nome, data_nascimento, cpf, telefone) VALUES 
+('Teste Exclusão', '1990-01-01', '111.222.333-44', '(11) 9111-1111');
+DELETE FROM Pacientes WHERE nome = 'Teste Exclusão' AND id_paciente NOT IN (
+    SELECT DISTINCT id_paciente FROM Agendamentos
+);
+
+-- Atualizar a validade de uma receita
+UPDATE Receitas SET validade = '2023-09-15' WHERE id_receita = 5;
+
+-- 1. Listar todos os médicos de uma determinada especialidade (Cardiologia)
+SELECT m.nome, m.crm, e.nome AS especialidade
+FROM Medicos m
+JOIN Especialidades e ON m.id_especialidade = e.id_especialidade
+WHERE e.nome = 'Cardiologia';
+
+-- 2. Consultas realizadas em um determinado período
+SELECT p.nome AS paciente, m.nome AS medico, c.data_hora_inicio, c.diagnostico
+FROM Consultas c
+JOIN Agendamentos a ON c.id_agendamento = a.id_agendamento
+JOIN Pacientes p ON a.id_paciente = p.id_paciente
+JOIN Medicos m ON a.id_medico = m.id_medico
+WHERE c.data_hora_inicio BETWEEN '2023-05-10' AND '2023-05-15'
+ORDER BY c.data_hora_inicio;
+
+-- 3. Pacientes com alergia a medicamentos específicos
+SELECT nome, data_nascimento, alergias
+FROM Pacientes
+WHERE alergias IS NOT NULL AND (alergias LIKE '%Penicilina%' OR alergias LIKE '%Amoxicilina%');
+
+-- 4. Valor total recebido por forma de pagamento
+SELECT forma_pagamento, SUM(valor) AS total_recebido
+FROM Pagamentos
+WHERE status = 'pago'
+GROUP BY forma_pagamento
+ORDER BY total_recebido DESC;
+
+-- 5. Médicos e quantidade de consultas realizadas
+SELECT m.nome AS medico, COUNT(c.id_consulta) AS total_consultas
+FROM Medicos m
+LEFT JOIN Agendamentos a ON m.id_medico = a.id_medico
+LEFT JOIN Consultas c ON a.id_agendamento = c.id_agendamento
+GROUP BY m.nome
+ORDER BY total_consultas DESC;
+
+-- 6. Receitas que contêm um determinado medicamento (Losartana)
+SELECT r.id_receita, p.nome AS paciente, m.nome AS medico, med.nome AS medicamento, ir.posologia
+FROM Receitas r
+JOIN Consultas c ON r.id_consulta = c.id_consulta
+JOIN Agendamentos a ON c.id_agendamento = a.id_agendamento
+JOIN Pacientes p ON a.id_paciente = p.id_paciente
+JOIN Medicos m ON a.id_medico = m.id_medico
+JOIN ItensReceita ir ON r.id_receita = ir.id_receita
+JOIN Medicamentos med ON ir.id_medicamento = med.id_medicamento
+WHERE med.nome LIKE '%Losartana%';
+
+-- 7. Média de valor das consultas por especialidade
+SELECT e.nome AS especialidade, AVG(p.valor) AS media_valor
+FROM Pagamentos p
+JOIN Consultas c ON p.id_consulta = c.id_consulta
+JOIN Agendamentos a ON c.id_agendamento = a.id_agendamento
+JOIN Medicos m ON a.id_medico = m.id_medico
+JOIN Especialidades e ON m.id_especialidade = e.id_especialidade
+GROUP BY e.nome
+ORDER BY media_valor DESC;
+
+-- 8. Pacientes que faltaram às consultas
+SELECT p.nome, p.telefone, a.data_hora AS data_agendamento
+FROM Agendamentos a
+JOIN Pacientes p ON a.id_paciente = p.id_paciente
+WHERE a.status = 'faltou';
+
+-- 9. Medicamentos mais prescritos
+SELECT m.nome AS medicamento, COUNT(ir.id_item) AS total_prescrito
+FROM Medicamentos m
+LEFT JOIN ItensReceita ir ON m.id_medicamento = ir.id_medicamento
+GROUP BY m.nome
+ORDER BY total_prescrito DESC;
+
+-- 10. Consultas com valor acima da média
+SELECT c.id_consulta, p.nome AS paciente, m.nome AS medico, pg.valor
+FROM Consultas c
+JOIN Agendamentos a ON c.id_agendamento = a.id_agendamento
+JOIN Pacientes p ON a.id_paciente = p.id_paciente
+JOIN Medicos m ON a.id_medico = m.id_medico
+JOIN Pagamentos pg ON c.id_consulta = pg.id_consulta
+WHERE pg.valor > (SELECT AVG(valor) FROM Pagamentos)
+ORDER BY pg.valor DESC;
